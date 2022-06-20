@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>index</h1>
+    <h1>Pagina principal de cursos</h1>
+    <a href="{{route('cursos.index')}}">Crear Curso</a>
+    <ul>
+        @foreach ($cursos as $curso)
+        <li>
+            <a href="{{route('cursos.show',$curso->id)}}">{{$curso->name}}</a>
+        </li>            
+        @endforeach
+    </ul>
+
+    {{$cursos->links()}}
 </body>
 </html> 

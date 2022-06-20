@@ -21,7 +21,10 @@ Route::get('/',HomeController::class);
 
 // Grupo de rutas con el mismo controlador
 Route::controller(CursoController::class)->group(function(){
-    Route::get('cursos', 'index');
-    Route::get('cursos/create', 'create');
-    Route::get('cursos/{course}', 'show');
+    Route::get('cursos', 'index')->name('cursos.index');
+    Route::get('cursos/create', 'create')->name('cursos.create');
+    Route::post('cursos','store')->name('cursos.store');
+    Route::get('cursos/{id}', 'show')->name('cursos.show');
+    Route::get('cursos/{id}/edit', 'edit')->name('cursos.edit');
+    Route::put('cursos/{cursos}','update')->name('cursos.update');
 });

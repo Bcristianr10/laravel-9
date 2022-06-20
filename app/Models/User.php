@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +43,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    protected function name():Attribute
+    {
+        return new Attribute(
+            //Efecto Accesores
+            // lo que hace es que al momento de traer los datos de la base de datos
+            // los modifica antes de entregarlos
+            //metodo ucwords de php para manejar los datos
+            get: fn($value)=>ucwords($value)
+            ,
+            // Efecto mutador
+            // lo que hace es que al momento de enviar los datos de la base de datos
+            // los modifica antes de enviarlos
+            // metodo strtolower de php para manejar los datos
+            set: fn($value)=>strtolower($value)
+
+            // se puede declarar las funciones como arrow function de javascript
+            // sin llaves, sin punto y coma.
+            
+        );
+    }
 }
