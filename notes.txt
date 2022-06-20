@@ -1,0 +1,18 @@
+// con esto podemos volver a la version anterior de la migraciones
+php artisan migrate:rollback
+
+//crear migracion con datos pre establecidos
+php artisane make:migration create_nombre_de_migracion_table 
+
+//elimina y corre las migraciones nuevamente
+php artisan migration:fresh
+
+//MODIFICAR DATOS Y COLUMNAS DE UNA tabla
+//crear una  migracion para poder agregar una columna a una tabla avatar es el campo, users es la tabla
+php artisan make:migration add_avatar_to_users_table
+// agregar dependencia
+composer require doctrine/dbal
+//para cambiar propiedad se crea una nueva migracion
+
+
+//los SEEDER basicamente nos permite crear contenido de relleno a la base de datos para poder utilizar
