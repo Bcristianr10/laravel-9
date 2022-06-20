@@ -8,7 +8,7 @@
         @csrf
         <label>
             Name:
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{old('name')}}">
         </label>
         @error('name')
             <br>
@@ -17,7 +17,7 @@
         @enderror
         <label>
             Description:
-            <textarea name="description" rows="5"></textarea>
+            <textarea name="description" rows="5">{{old('description')}}</textarea>
         </label>
         @error('description')
             <br>
@@ -26,7 +26,7 @@
         @enderror
         <label>
             Name:
-            <input type="text" name="category">
+            <input type="text" name="category" value="{{old('category')}}">
         </label>
         @error('category')
             <br>
