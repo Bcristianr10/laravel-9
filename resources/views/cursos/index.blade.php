@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Pagina principal de cursos</h1>
-    <a href="{{route('cursos.index')}}">Crear Curso</a>
+    <a href="{{route('cursos.create')}}">Crear Curso</a>
     <ul>
         @foreach ($cursos as $curso)
         <li>

@@ -6,10 +6,11 @@
     <h1>Create</h1>
     <form action="{{ route('cursos.store') }}" method="POST">
         @csrf
-        <label>
+         <label>
             Name:
             <input type="text" name="name" value="{{old('name')}}">
         </label>
+        <br>
         @error('name')
             <br>
             <small>*{{ $message }}</small>
@@ -19,6 +20,7 @@
             Description:
             <textarea name="description" rows="5">{{old('description')}}</textarea>
         </label>
+        <br>
         @error('description')
             <br>
             <small>*{{ $message }}</small>
@@ -28,6 +30,7 @@
             Name:
             <input type="text" name="category" value="{{old('category')}}">
         </label>
+        <br>
         @error('category')
             <br>
             <small>*{{ $message }}</small>

@@ -12,7 +12,7 @@ class CursoController extends Controller
         $curso = Curso::orderBy('id','desc')->paginate();
         return view('cursos.index',
         [
-            'curso'=>$curso
+            'cursos'=>$curso
         ]);
 
     }
@@ -21,6 +21,8 @@ class CursoController extends Controller
 
     }
     public function store(StoreCurso $request){
+
+        // return $request;
         // manera tradicional de realizar los save en las base de datos
         // $curso = new Curso();
         // $curso->name = $request->name;
@@ -39,18 +41,17 @@ class CursoController extends Controller
     }
 
     public function edit(Curso $curso){
+        
         return view('cursos.edit',[
             'curso'=>$curso
         ]);
     }
 
-    public function update(Request $request, Curso $curso){
+    public function update(StoreCurso $request, Curso $curso){
 
 
-        $curso->name = $request->name;
-        $curso->description = $request->name;
-        $curso->category = $request->name;
-        $curso->save();
+        $curso = Curso::create($request->all());
+
         return redirect()->route('cursos.show',$curso);
     }
 
