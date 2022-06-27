@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\prueba;
 use Illuminate\Routing\RouteGroup;
 
 /*
@@ -27,4 +28,7 @@ Route::controller(CursoController::class)->group(function(){
     Route::get('cursos/{id}', 'show')->name('cursos.show');
     Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');
     Route::put('cursos/{curso}','update')->name('cursos.update');
-});
+}); 
+
+
+Route::resource('prueba', prueba::class);
